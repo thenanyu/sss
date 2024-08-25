@@ -22,8 +22,7 @@ I love products and technology. Every product was cutting edge technology at som
 ## Writing, Talks, Projects
 
 - [The Heirloom Tomato Org Chart](https://www.youtube.com/watch?v=I4vvBidQcck) — a talk I gave at Figma's Config conference
-
-- Simple Static Site — an extremely simple static site generator that created with the help of Cursor and Claude. The absolute simplest way to create a website from a set of markdown files
+- Simple Static Site — an extremely simple static site generator that I created to build and maintain this web site. The absolutely simplest way to create a website from a set of markdown files
 
 <hr/>
 

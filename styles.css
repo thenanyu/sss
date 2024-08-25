@@ -22,10 +22,10 @@ body {
   color: var(--text-color);
   font-family: sans-serif;
   line-height: 1.2;
-  margin: 0 auto;
+  margin: 4em auto;
   width: 100%;
   max-width: 800px;
-  padding: 0.8em 1.2em;
+  padding: 0 1.2em;
 
 
 }
