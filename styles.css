@@ -1,0 +1,43 @@
+/* Light mode (default) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --link-hover-color: #004499;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #4da6ff;
+    --link-hover-color: #80bfff;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  line-height: 1.2;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 0.8em 1.2em;
+
+
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Add more styles as needed */
