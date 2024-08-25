@@ -30,4 +30,4 @@ I love products and technology. Every product was cutting edge technology at som
 - [X/Twitter](https://x.com/thenanyu)
 - [LinkedIn](https://www.linkedin.com/in/thenanyu/)
 
-Website built with [sss](www.google.com), a simple static site generator created by me, with the help of Claude
+Website built with [sss](www.google.com), a simple static site generator created by me, with the help of [Cursor](www.cursor.com) and [Claude](https://claude.ai/)
