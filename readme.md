@@ -57,4 +57,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Credits
 
-Created by Nan Yu with the assistance of Claude.
+Created by Nan Yu using [Cursor](www.cursor.com) and [Claude](https://claude.ai/)
