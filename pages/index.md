@@ -22,7 +22,7 @@ I love products and technology. Every product was cutting edge technology at som
 ## Writing, Talks, Projects
 
 - [The Heirloom Tomato Org Chart](https://www.youtube.com/watch?v=I4vvBidQcck) — a talk I gave at Figma's Config conference
-- Simple Static Site — an extremely simple static site generator that I created to build and maintain this web site. The absolutely simplest way to create a website from a set of markdown files
+- [Simple Static Site (sss)](https://github.com/thenanyu/sss) — an extremely simple static site generator that I created to build and maintain this web site. The absolutely simplest way to create a website from a set of markdown files
 
 <hr/>
 
@@ -30,4 +30,4 @@ I love products and technology. Every product was cutting edge technology at som
 - [X/Twitter](https://x.com/thenanyu)
 - [LinkedIn](https://www.linkedin.com/in/thenanyu/)
 
-Website built with [sss](www.google.com), a simple static site generator created by me, with the help of [Cursor](www.cursor.com) and [Claude](https://claude.ai/)
+Website built with [sss](https://github.com/thenanyu/sss), a simple static site generator created by me, with the help of [Cursor](www.cursor.com) and [Claude](https://claude.ai/)
