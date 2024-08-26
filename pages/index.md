@@ -1,10 +1,10 @@
 # Nan Yu
 I'm a technology leader and builder. I'm currently Head of Product at [Linear](www.linear.app).
 
-<hr/>
+---
 
 ## Some things about me
-- Born in [Suzhou China](https://en.wikipedia.org/wiki/Suzhou), grew up in San Diego
+- Born in [Suzhou](https://en.wikipedia.org/wiki/Suzhou), grew up in San Diego
 - Studied EECS at UC Berkeley. Go Bears
 - Currently lives in Brooklyn
 - Previously CTO at [Everlane](www.everlane.com), VPP at [Mode](www.mode.com)
@@ -21,10 +21,10 @@ I love products and technology. Every product was cutting edge technology at som
 
 ## Writing, Talks, Projects
 
-- [The Heirloom Tomato Org Chart](https://www.youtube.com/watch?v=I4vvBidQcck) — a talk I gave at Figma's Config conference
+- [The Heirloom Tomato Org Chart](https://www.youtube.com/watch?v=I4vvBidQcck) — a talk I gave at Figma's Config conference about anti-patterns in startup org chart design
 - [Simple Static Site (sss)](https://github.com/thenanyu/sss) — an extremely simple static site generator that I created to build and maintain this web site. The absolutely simplest way to create a website from a set of markdown files
 
-<hr/>
+---
 
 ## Contact
 - [X/Twitter](https://x.com/thenanyu)
