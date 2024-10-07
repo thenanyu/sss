@@ -14,7 +14,7 @@ SSS is a minimal, Node.js-based static site generator that converts Markdown fil
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/sss.git
+   git clone https://github.com/thenanyu/sss.git
    cd sss
    ```
 
