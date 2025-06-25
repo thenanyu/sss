@@ -9,8 +9,9 @@
   --heading-color: #1a202c;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
+/* Dark mode - DISABLED: Website now always shows in light mode */
+/* Changed from (prefers-color-scheme: dark) to (prefers-color-scheme: never) to disable dark mode */
+@media (prefers-color-scheme: never) {
   :root {
     --background-color: #1a202c;
     --text-color: #e2e8f0;
@@ -236,8 +237,8 @@ blockquote p:last-child {
   }
 }
 
-/* Dark mode adjustments for blockquotes */
-@media (prefers-color-scheme: dark) {
+/* Dark mode adjustments for blockquotes - DISABLED: Website now always shows in light mode */
+@media (prefers-color-scheme: never) {
   blockquote p {
     color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
   }
