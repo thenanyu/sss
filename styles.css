@@ -9,9 +9,9 @@
   --heading-color: #1a202c;
 }
 
-/* Dark mode */
+/* Dark mode (system preference, when no manual override) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.theme-light):not(.theme-dark) {
     --background-color: #1a202c;
     --text-color: #e2e8f0;
     --text-color-light: #a0aec0;
@@ -20,6 +20,27 @@
     --border-color: #2d3748;
     --heading-color: #f7fafc;
   }
+}
+
+/* Manual theme overrides */
+.theme-light {
+  --background-color: #ffffff !important;
+  --text-color: #2d3748 !important;
+  --text-color-light: #4a5568 !important;
+  --link-color: #3182ce !important;
+  --link-hover-color: #2c5282 !important;
+  --border-color: #e2e8f0 !important;
+  --heading-color: #1a202c !important;
+}
+
+.theme-dark {
+  --background-color: #1a202c !important;
+  --text-color: #e2e8f0 !important;
+  --text-color-light: #a0aec0 !important;
+  --link-color: #63b3ed !important;
+  --link-hover-color: #90cdf4 !important;
+  --border-color: #2d3748 !important;
+  --heading-color: #f7fafc !important;
 }
 
 /* Base styles */
@@ -238,7 +259,37 @@ blockquote p:last-child {
 
 /* Dark mode adjustments for blockquotes */
 @media (prefers-color-scheme: dark) {
-  blockquote p {
+  :root:not(.theme-light):not(.theme-dark) blockquote p {
     color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
   }
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:hover {
+  background: var(--border-color);
+  transform: scale(1.05);
+}
+
+#theme-toggle:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+#theme-toggle:active {
+  transform: scale(0.95);
 }

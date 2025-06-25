@@ -9,6 +9,7 @@ const pagesDir = path.join(__dirname, 'pages');
 const outputDir = path.join(__dirname, 'dist');
 const assetsDir = path.join(__dirname, 'assets');
 const stylesFile = path.join(__dirname, 'styles.css');
+const themeToggleFile = path.join(__dirname, 'theme-toggle.js');
 
 // Configure marked with extensions
 marked.use({ extensions: [definitionList] });
@@ -22,8 +23,14 @@ marked.use({
 fs.ensureDirSync(outputDir);
 
 function copyAssets() {
-  fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+  // Copy assets directory if it exists
+  if (fs.existsSync(assetsDir)) {
+    fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+  }
+  
+  // Copy CSS and JavaScript files
   fs.copyFileSync(stylesFile, path.join(outputDir, 'styles.css'));
+  fs.copyFileSync(themeToggleFile, path.join(outputDir, 'theme-toggle.js'));
 }
 
 function processMarkdownFile(filePath) {
@@ -46,10 +53,31 @@ function processMarkdownFile(filePath) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        
+        <!-- FOUC Prevention: Apply saved theme before page renders -->
+        <script>
+        (function() {
+          try {
+            const theme = localStorage.getItem('theme-preference');
+            if (theme && theme !== 'auto') {
+              document.documentElement.classList.add('theme-' + theme);
+            }
+          } catch (e) {
+            // Fail silently if localStorage unavailable
+          }
+        })();
+        </script>
+        
         <title>${path.basename(cleanName, '.md')}</title>
     </head>
     <body>
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" aria-label="Toggle theme" title="Auto (follows system)">🌓</button>
+        
         ${htmlContent}
+        
+        <!-- Theme Toggle Module -->
+        <script src="theme-toggle.js"></script>
     </body>
     </html>
   `;
@@ -90,7 +118,8 @@ compile();
 // Watch for changes
 const watcher = chokidar.watch([
   path.join(pagesDir, '**', '*.md'),
-  stylesFile
+  stylesFile,
+  themeToggleFile
 ], {
   persistent: true,
   ignoreInitial: true
