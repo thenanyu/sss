@@ -22,7 +22,10 @@ marked.use({
 fs.ensureDirSync(outputDir);
 
 function copyAssets() {
-  fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+  // Only copy assets directory if it exists
+  if (fs.existsSync(assetsDir)) {
+    fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+  }
   fs.copyFileSync(stylesFile, path.join(outputDir, 'styles.css'));
 }
 
@@ -47,9 +50,76 @@ function processMarkdownFile(filePath) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <title>${path.basename(cleanName, '.md')}</title>
+        <script>
+          // Theme detection and application - runs before page render to prevent flash
+          (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+              document.documentElement.className = 'theme-' + savedTheme;
+            } else if (systemPrefersDark) {
+              document.documentElement.className = 'theme-dark';
+            } else {
+              document.documentElement.className = 'theme-light';
+            }
+          })();
+        </script>
     </head>
     <body>
+        <!-- Theme toggle button -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+        
         ${htmlContent}
+        
+        <script>
+          // Theme toggle functionality
+          (function() {
+            const toggleButton = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            function getCurrentTheme() {
+              const savedTheme = localStorage.getItem('theme');
+              if (savedTheme) return savedTheme;
+              
+              return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            
+            function updateThemeIcon(theme) {
+              themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+              toggleButton.setAttribute('aria-label', 
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+              );
+            }
+            
+            function setTheme(theme) {
+              document.documentElement.className = 'theme-' + theme;
+              localStorage.setItem('theme', theme);
+              updateThemeIcon(theme);
+            }
+            
+            // Initialize icon based on current theme
+            updateThemeIcon(getCurrentTheme());
+            
+            // Toggle theme on button click
+            toggleButton.addEventListener('click', function() {
+              const currentTheme = getCurrentTheme();
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              setTheme(newTheme);
+            });
+            
+            // Listen for system theme changes when no manual preference is set
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+              if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                document.documentElement.className = 'theme-' + newTheme;
+                updateThemeIcon(newTheme);
+              }
+            });
+          })();
+        </script>
     </body>
     </html>
   `;
