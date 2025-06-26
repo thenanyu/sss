@@ -22,6 +22,27 @@
   }
 }
 
+/* Manual theme overrides - these take precedence over media queries */
+html.theme-light {
+  --background-color: #ffffff;
+  --text-color: #2d3748;
+  --text-color-light: #4a5568;
+  --link-color: #3182ce;
+  --link-hover-color: #2c5282;
+  --border-color: #e2e8f0;
+  --heading-color: #1a202c;
+}
+
+html.theme-dark {
+  --background-color: #1a202c;
+  --text-color: #e2e8f0;
+  --text-color-light: #a0aec0;
+  --link-color: #63b3ed;
+  --link-hover-color: #90cdf4;
+  --border-color: #2d3748;
+  --heading-color: #f7fafc;
+}
+
 /* Base styles */
 * {
   box-sizing: border-box;
@@ -240,5 +261,41 @@ blockquote p:last-child {
 @media (prefers-color-scheme: dark) {
   blockquote p {
     color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.25rem;
+  line-height: 1;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  background: var(--text-color-light);
+  transform: scale(1.05);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments for theme toggle */
+@media (max-width: 640px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem;
+    font-size: 1.1rem;
   }
 }
