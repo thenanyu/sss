@@ -6,7 +6,7 @@ SSS is a minimal, Node.js-based static site generator that converts Markdown fil
 
 - Converts Markdown files to HTML
 - Development mode with file watching and automatic recompilation
-- Respects system dark mode preferences
+- **Automatic dark mode** - Respects system dark mode preferences via CSS `@media (prefers-color-scheme: dark)` (no JavaScript toggle needed)
 - RSS feed generation
 - Custom markdown extensions (definition lists, tweet embeds, footnotes)
 
