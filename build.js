@@ -42,6 +42,13 @@ fs.ensureDirSync(outputDir);
 function copyAssets() {
   fs.copySync(assetsDir, path.join(outputDir, 'assets'));
   fs.copyFileSync(stylesFile, path.join(outputDir, 'styles.css'));
+  
+  // Copy theme toggle script
+  const themeToggleFile = path.join(__dirname, 'theme-toggle.js');
+  if (fs.existsSync(themeToggleFile)) {
+    fs.copyFileSync(themeToggleFile, path.join(outputDir, 'theme-toggle.js'));
+    console.log('Copied theme toggle script');
+  }
 
   // Copy favicons if the directory exists
   const faviconsDir = path.join(__dirname, 'favicons');
@@ -142,6 +149,8 @@ function processMarkdownFile(filePath) {
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Spectral:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css?v=${Date.now()}">
         <title>${title}</title>
+        <!-- Theme Toggle Script -->
+        <script src="theme-toggle.js?v=${Date.now()}"></script>
         <!-- Cloudflare Web Analytics -->
         <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "319d6ec648d04e29ba33fca61256833f"}'></script>
         <!-- End Cloudflare Web Analytics -->
