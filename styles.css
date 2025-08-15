@@ -9,9 +9,20 @@
   --heading-color: #1a1614;
 }
 
-/* Dark mode */
+/* Dark mode via class */
+:root.dark-theme {
+  --background-color: #1c1917;
+  --text-color: #e8e2dd;
+  --text-color-light: #b8afa8;
+  --link-color: #d4a373;
+  --link-hover-color: #e6ccb2;
+  --border-color: #2d2826;
+  --heading-color: #f8f4f1;
+}
+
+/* Dark mode via media query (default behavior) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light-theme) {
     --background-color: #1c1917;
     --text-color: #e8e2dd;
     --text-color-light: #b8afa8;
@@ -281,9 +292,23 @@ blockquote:not(.twitter-tweet) p {
 
 /* Dark mode adjustments for blockquotes */
 @media (prefers-color-scheme: dark) {
-  blockquote:not(.twitter-tweet) p {
+  :root:not(.light-theme) blockquote:not(.twitter-tweet) p {
     color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
   }
+}
+
+/* Dark theme class adjustments for blockquotes */
+:root.dark-theme blockquote:not(.twitter-tweet) p {
+  color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: block;
+  text-align: right;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color-light);
 }
 
 /* Tweet container */
