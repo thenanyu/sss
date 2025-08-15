@@ -9,9 +9,9 @@
   --heading-color: #1a1614;
 }
 
-/* Dark mode */
+/* Dark mode via media query (system preference) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background-color: #1c1917;
     --text-color: #e8e2dd;
     --text-color-light: #b8afa8;
@@ -20,6 +20,17 @@
     --border-color: #2d2826;
     --heading-color: #f8f4f1;
   }
+}
+
+/* Manual dark mode override */
+:root[data-theme="dark"] {
+  --background-color: #1c1917;
+  --text-color: #e8e2dd;
+  --text-color-light: #b8afa8;
+  --link-color: #d4a373;
+  --link-hover-color: #e6ccb2;
+  --border-color: #2d2826;
+  --heading-color: #f8f4f1;
 }
 
 /* Base styles */
@@ -312,4 +323,19 @@ img {
   height: auto;
   margin: 2rem auto;
   border-radius: 4px;
+}
+
+/* Theme toggle link */
+.theme-toggle {
+  display: block;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color-light);
+  border-bottom: none;
+}
+
+.theme-toggle:hover {
+  color: var(--link-color);
+  border-bottom: 1px solid color-mix(in srgb, var(--link-color) 30%, transparent);
 }
