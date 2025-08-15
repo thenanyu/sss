@@ -147,7 +147,60 @@ function processMarkdownFile(filePath) {
         <!-- End Cloudflare Web Analytics -->
     </head>
     <body>
+        <div class="theme-toggle">
+            <a href="#" id="theme-toggle-link">Switch to dark mode</a>
+        </div>
         ${htmlContent}
+        <script>
+            // Theme toggle functionality
+            (function() {
+                const toggleLink = document.getElementById('theme-toggle-link');
+                const rootElement = document.documentElement;
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                
+                // Check for saved theme preference or use the system preference
+                const savedTheme = localStorage.getItem('theme');
+                
+                // Apply the saved theme if it exists
+                if (savedTheme === 'dark') {
+                    rootElement.classList.add('dark-theme');
+                    toggleLink.textContent = 'Switch to light mode';
+                } else if (savedTheme === 'light') {
+                    rootElement.classList.add('light-theme');
+                    toggleLink.textContent = 'Switch to dark mode';
+                } else {
+                    // No saved preference, set the text based on system preference
+                    toggleLink.textContent = prefersDarkScheme.matches ? 
+                        'Switch to light mode' : 'Switch to dark mode';
+                }
+                
+                // Toggle theme when the link is clicked
+                toggleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (rootElement.classList.contains('dark-theme')) {
+                        // Switch to light theme
+                        rootElement.classList.remove('dark-theme');
+                        rootElement.classList.add('light-theme');
+                        toggleLink.textContent = 'Switch to dark mode';
+                        localStorage.setItem('theme', 'light');
+                    } else if (rootElement.classList.contains('light-theme')) {
+                        // Switch to system preference
+                        rootElement.classList.remove('light-theme');
+                        rootElement.classList.remove('dark-theme');
+                        toggleLink.textContent = prefersDarkScheme.matches ? 
+                            'Switch to light mode' : 'Switch to dark mode';
+                        localStorage.removeItem('theme');
+                    } else {
+                        // Switch to dark theme
+                        rootElement.classList.add('dark-theme');
+                        rootElement.classList.remove('light-theme');
+                        toggleLink.textContent = 'Switch to light mode';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+            })();
+        </script>
     </body>
     </html>
   `;
