@@ -81,10 +81,26 @@ function processMarkdownFile(filePath) {
   const titleMatch = content.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : path.basename(cleanName, '.md');
 
-  // Find first block-level element after the title
+  // Find description - first try blockquote, then first paragraph
   const contentAfterTitle = content.slice(content.indexOf(title) + title.length);
-  const firstBlockMatch = contentAfterTitle.match(/^>[ \t]*([^\n]+)/m);
-  const description = firstBlockMatch ? firstBlockMatch[1].trim() : '';
+  let description = '';
+  
+  // First try to find a blockquote (for pages that have them)
+  const blockquoteMatch = contentAfterTitle.match(/^>[ \t]*([^\n]+)/m);
+  if (blockquoteMatch) {
+    description = blockquoteMatch[1].trim();
+  } else {
+    // Fall back to first non-empty line that's not a heading or separator
+    const lines = contentAfterTitle.split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('---') && !trimmed.startsWith('{{')) {
+        description = trimmed;
+        break;
+      }
+    }
+  }
+  
   console.log(`Extracted description for ${cleanName}: "${description}"`);
 
   // Extract first image from content

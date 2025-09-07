@@ -1,3 +1,13 @@
+/* 
+ * Color Mode Implementation
+ * 
+ * This site uses CSS-based automatic dark mode detection via @media (prefers-color-scheme: dark).
+ * This approach respects the user's system preferences without requiring JavaScript toggles.
+ * 
+ * DO NOT add manual color mode toggle buttons - the automatic system preference detection
+ * provides a better user experience and follows modern web standards.
+ */
+
 /* Light mode (default) */
 :root {
   --background-color: #fcfaf8;
@@ -9,7 +19,7 @@
   --heading-color: #1a1614;
 }
 
-/* Dark mode */
+/* Dark mode - automatically applied based on system preferences */
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #1c1917;
