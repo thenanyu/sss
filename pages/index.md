@@ -3,15 +3,18 @@ I'm a technology leader and builder
 
 ---
 
-Working on Codex and ChatGPT at [OpenAI](https://openai.com/)
-Previously Head of Product at [Linear](https://linear.app), CTO at [Everlane](https://www.everlane.com/), VPP at [Mode](https://mode.com/)
-Lives in Brooklyn, NY
+Working on Codex at [OpenAI](https://openai.com/)
+Previously Head of Product at [Linear](https://linear.app)
+Lives in San Francisco
 
 ## Writing
 
 {{writing}}
 
 ## Talks and Interviews
+[Stop planning for 2027: how OpenAI builds product 90 days at a time](https://www.youtube.com/watch?v=-ciSTkEVy30)
+: *Sep 2026* — a conversation at Lenny's Summit about building AI products, designing understandable agents, and learning from real users.
+
 [Interview with Aakash Gupta](https://www.youtube.com/watch?v=e_T8Sn8s46M)
 : *Jul 2025* — "Crash Course: AI Agents for Coding" we discuss and demonstrate the future of AI agentic work. [Apple](https://podcasts.apple.com/us/podcast/how-linear-built-a-%241-25b-unicorn-with-just-2-pms/id1763555775?i=1000718097708), [Spotify](https://open.spotify.com/show/7vVEMqCSKb7I7xPk8xZtg5)
 
@@ -25,7 +28,6 @@ Lives in Brooklyn, NY
 
 Send me a note if you want to get in touch, or have advising or investment ideas
 
-- thenanyu at gmail
 - [X/Twitter](https://x.com/thenanyu)
 - [LinkedIn](https://www.linkedin.com/in/thenanyu/)
 - [Github](https://github.com/thenanyu)
