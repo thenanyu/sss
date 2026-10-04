@@ -3,8 +3,8 @@ I'm a technology leader and builder
 
 ---
 
-Head of Product at [Linear](https://linear.app)
-Previously CTO at [Everlane](https://www.everlane.com/), VPP at [Mode](https://mode.com/)
+Working on Codex and ChatGPT at [OpenAI](https://openai.com/)
+Previously Head of Product at [Linear](https://linear.app), CTO at [Everlane](https://www.everlane.com/), VPP at [Mode](https://mode.com/)
 Lives in Brooklyn, NY
 
 ## Writing
@@ -13,13 +13,13 @@ Lives in Brooklyn, NY
 
 ## Talks and Interviews
 [Interview with Aakash Gupta](https://www.youtube.com/watch?v=e_T8Sn8s46M)
-: *Jul 2025* — "Crash Course: AI Agents for Coding" we and discuss and demonstrate the future of AI agentic work. [Apple](https://podcasts.apple.com/us/podcast/how-linear-built-a-%241-25b-unicorn-with-just-2-pms/id1763555775?i=1000718097708), [Spotify](https://open.spotify.com/show/7vVEMqCSKb7I7xPk8xZtg5)
+: *Jul 2025* — "Crash Course: AI Agents for Coding" we discuss and demonstrate the future of AI agentic work. [Apple](https://podcasts.apple.com/us/podcast/how-linear-built-a-%241-25b-unicorn-with-just-2-pms/id1763555775?i=1000718097708), [Spotify](https://open.spotify.com/show/7vVEMqCSKb7I7xPk8xZtg5)
 
 [Interview on Lenny's Podcast](https://www.youtube.com/watch?v=nTr21kgCFF4)
 : *Jan 2025* — "Linear's secrets to building beloved B2B products" we get into specific tactics that help us ship quickly with quality. [Apple](https://podcasts.apple.com/us/podcast/linears-secret-to-building-beloved-b2b-products-nan/id1627920305?i=1000687118072), [Spotify](https://open.spotify.com/episode/1wE9s4PtJvFMJneoZT1Iwp)
 
 [The Heirloom Tomato Org Chart](https://www.youtube.com/watch?v=I4vvBidQcck)
-: *Jun 2024* — a talk I gave Figma Config about common anti-patterns in startup org chart design and how these decisions affect your product. [Article](https://review.firstround.com/make-an-org-chart-you-want-to-ship-advice-from-linear-on-how-heirloom-tomatoes-should-inspire-team-design/)
+: *Jun 2024* — a talk I gave at Figma Config about common anti-patterns in startup org chart design and how these decisions affect your product. [Article](https://review.firstround.com/make-an-org-chart-you-want-to-ship-advice-from-linear-on-how-heirloom-tomatoes-should-inspire-team-design/)
 
 ## Contact
 
