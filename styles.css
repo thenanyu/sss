@@ -1,4 +1,4 @@
-/* Light mode (default) */
+/* Light mode (default, or chosen with the theme switch) */
 :root {
   --background-color: #fcfaf8;
   --text-color: #2c2826;
@@ -7,11 +7,12 @@
   --link-hover-color: #654321;
   --border-color: #e8e2dd;
   --heading-color: #1a1614;
+  color-scheme: light;
 }
 
-/* Dark mode */
+/* Dark mode: follows the system unless the visitor picked light */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background-color: #1c1917;
     --text-color: #e8e2dd;
     --text-color-light: #b8afa8;
@@ -19,7 +20,68 @@
     --link-hover-color: #e6ccb2;
     --border-color: #2d2826;
     --heading-color: #f8f4f1;
+    color-scheme: dark;
   }
+}
+
+/* Dark mode chosen with the theme switch */
+:root[data-theme="dark"] {
+  --background-color: #1c1917;
+  --text-color: #e8e2dd;
+  --text-color-light: #b8afa8;
+  --link-color: #d4a373;
+  --link-hover-color: #e6ccb2;
+  --border-color: #2d2826;
+  --heading-color: #f8f4f1;
+  color-scheme: dark;
+}
+
+/* Theme switch */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background-color: var(--background-color);
+  color: var(--text-color-light);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--link-color);
+  border-color: var(--link-color);
+  transform: rotate(15deg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* Show the moon in light mode (switch to dark) and the sun in dark mode */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+
+body, a, hr, code, pre, dd, em, strong {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Base styles */
@@ -281,9 +343,13 @@ blockquote:not(.twitter-tweet) p {
 
 /* Dark mode adjustments for blockquotes */
 @media (prefers-color-scheme: dark) {
-  blockquote:not(.twitter-tweet) p {
+  :root:not([data-theme="light"]) blockquote:not(.twitter-tweet) p {
     color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
   }
+}
+
+:root[data-theme="dark"] blockquote:not(.twitter-tweet) p {
+  color: color-mix(in srgb, var(--text-color) 50%, var(--link-color) 25%);
 }
 
 /* Tweet container */
